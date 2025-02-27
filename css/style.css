@@ -7,9 +7,22 @@ header {
     background-color: black;
     color: white;
     padding: 20px;
-    text-align: center;
-    z-index: 1; 
-    position: relative; 
+    display: flex;
+    max-height: 40px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 10px;
+    height: auto;
+    display: block;
+}
+
+header nav {
+    display: center;
+    margin: 0 auto;
+    font-size: 20px;
 }
 
 header nav ul {
@@ -17,11 +30,11 @@ header nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
 }
 
 header nav ul li {
-    margin: 0 10px;
+    margin: 0 25px;
+    display: center;
 }
 
 header nav ul li a {
@@ -30,7 +43,10 @@ header nav ul li a {
 }
 
 body {
-    position: relative; 
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    margin: 0;
 }
 
 body::before {
@@ -48,20 +64,14 @@ body::before {
     mix-blend-mode: multiply;
 }
 
-body {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-}
-
-
 .page-container {
-    display: flex; 
-    flex-direction: column; 
-    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 main {
-    flex: 1; 
+    flex: 1;
 }
 
 footer {
