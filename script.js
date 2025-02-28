@@ -14,7 +14,7 @@ closePanelBtn.addEventListener('click', () => {
 
 loginForm.addEventListener('submit', async (event) => {
     event.preventDefault();
-    messageContainer.innerHTML = ''; // Очищаем предыдущие сообщения
+    messageContainer.innerHTML = ''; 
 
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -36,8 +36,7 @@ loginForm.addEventListener('submit', async (event) => {
 
         if (data.success) {
             messageContainer.innerHTML = '<p style="color:green;">Успешный вход!</p>';
-            // Перенаправление на другую страницу после успешного входа
-            window.location.href = 'success.html'; // Замените 'success.html' на нужную страницу
+            window.location.href = 'success.html'; 
         } else {
             messageContainer.innerHTML = `<p style="color:red;">${data.message || 'Ошибка входа'}</p>`;
         }
