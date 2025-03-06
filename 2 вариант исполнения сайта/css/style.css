@@ -1,0 +1,119 @@
+body {
+    margin: 0; 
+    font-family: sans-serif; 
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    max-width: 1200px; 
+    margin: 0 auto;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+header nav {
+    display: flex; 
+    align-items: center;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin: 0 15px; 
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+
+main {
+    flex: 1;
+    background-color: white; 
+    padding: 20px;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+main::before,
+main::after {
+    content: "";
+    display: block;
+    height: 10px;
+    background-color: black;
+    margin: 10px auto;
+}
+
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.login-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#openLoginPanel {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.login-panel {
+    position: absolute;
+    top: 100px;
+    right: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.login-panel.active {
+    transform: translateX(0);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 1;
+}
+
+.overlay.active {
+    display: block;
+}
