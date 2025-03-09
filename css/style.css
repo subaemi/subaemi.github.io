@@ -1,28 +1,64 @@
-header, footer {
-    z-index: 1;
-    position: relative;
+.ubuntu-regular {
+    font-family: "Ubuntu";
+    font-weight: 400;
+    font-style: normal;
+}
+  
+.ubuntu-medium {
+    font-family: "Ubuntu";
+    font-weight: 500;
+    font-style: normal;
+}
+  
+.ubuntu-bold {
+    font-family: "Ubuntu";
+    font-weight: 700;
+    font-style: normal;
+}
+  
+.ubuntu-medium-italic {
+    font-family: "Ubuntu";
+    font-weight: 500;
+    font-style: italic;
+}
+  
+.ubuntu-bold-italic {
+    font-family: "Ubuntu";
+    font-weight: 700;
+    font-style: italic;
+}
+
+body {
+    margin: 0; 
+    font-family: "Ubuntu";
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
-    background-color: black;
-    color: white;
-    padding: 20px;
+    background-color: rgba(0, 0, 0, 1);
+    color: rgba(0, 0, 0, 1);
+    font-family: "Ubuntu";
     display: flex;
-    max-height: 40px;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: space-between; 
     align-items: center;
+    margin: 0 auto;
+    height: 60px;
 }
 
 .logo {
-    width: 10px;
+    width: 150px;
     height: auto;
-    display: block;
 }
 
 header nav {
-    display: center;
-    margin: 0 auto;
-    font-size: 20px;
+    display: flex;
+    align-items: center;
 }
 
 header nav ul {
@@ -32,80 +68,118 @@ header nav ul {
     display: flex;
 }
 
-header nav ul li {
-    margin: 0 25px;
-    display: center;
+header nav li {
+    margin: 0 15px;
 }
 
-header nav ul li a {
+header nav a {
     text-decoration: none;
     color: white;
+    font-weight: 500; 
+}
+
+main {
+    flex: 1;
+    background-color: #f4f4f4; 
+    padding: 40px;
+}
+
+.dec {
+    float: right;
+    padding: 200px;
+}
+
+.green-word {
+    color: green;
+  }
+  
+
+section {
+    margin-bottom: 40px;
+}
+
+h1, h2, h3 {
+    font-family: 'Ubuntu', sans-serif;
+    color: #000000;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+p {
+  line-height: 1.8;
+}
+
+.button {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s; 
+}
+
+.button:hover {
+    background-color: #0069d9;
+}
+
+
+footer {
+    background-color: #000000;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
 }
 
 .login-container {
     display: flex;
-    justify-content: flex-end; 
-    padding: 10px; 
-    margin-bottom: 20px; 
-
+    justify-content: flex-end;
+    font-family: "Ubuntu";
+    padding: 10px;
+    margin-bottom: 20px;
 }
 
 #openLoginPanel {
     padding: 10px 20px;
-    background-color: #007bff; 
-    color: white;
+    background-color: #ffffff;
+    font-family: "Ubuntu";
+    color: rgb(0, 0, 0);
     border: none;
     cursor: pointer;
 }
 
 .login-panel {
     position: absolute;
-    top: 100px; 
+    font-family: "Ubuntu";
+    top: 100px;
     right: 0;
-    transform: translateX(100%); 
+    transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
 }
+
 .login-panel.active {
-    transform: translateX(0); 
+    transform: translateX(0);
 }
 
-body {
-    position: relative;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    margin: 0;
-}
-
-body::before {
-    content: "";
+.overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("../image/norwey.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    z-index: -1;
-    mix-blend-mode: multiply;
-}
-
-.page-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-main {
-    flex: 1;
-}
-
-footer {
-    background-color: black;
-    color: white;
-    padding: 20px;
-    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
     z-index: 1;
-    position: relative;
+}
+
+.overlay.active {
+    display: block;
 }
