@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Регистрация</title>
+<style>
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.register-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.register-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.register-container input[type="text"], .register-container input[type="email"], .register-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.register-container input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.register-container button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+</style>
+</head>
+<body>
+    
+    <div class="register-container">
+        <h2>Регистрация</h2>
+        <form id="registrationForm">
+            <label for="username">Имя (никнейм):</label>
+            <input type="text" id="username" name="username" required><br><br>
+    
+            <label for="email">Почта:</label>
+            <input type="email" id="email" name="email" required><br><br>
+    
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required><br><br>
+    
+            <label for="confirmPassword">Подтверждение пароля:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
+    
+            <label>Направления:</label>
+            <div>
+                <label><input type="checkbox" name="direction[]" value="Frontend">Frontend</label><br>
+                <label><input type="checkbox" name="direction[]" value="Backend">Backend</label><br>
+                <label><input type="checkbox" name="direction[]" value="UX-UI Design">UX-UI Design</label><br>
+                <label><input type="checkbox" name="direction[]" value="Прочее">Прочее</label>
+            </div><br>
+    
+            <div id="errorMessage" class="error-message"></div>
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+    </div>
+    
+    <script>
+        const form = document.getElementById('registrationForm');
+        const errorMessage = document.getElementById('errorMessage');
+    
+        
+        let users = [];
+    
+        const loadUsers = () => {
+            const storedUsers = localStorage.getItem('users');
+            users = storedUsers ? JSON.parse(storedUsers) : [];
+        };
+    
+        const saveUsers = () => {
+            localStorage.setItem('users', JSON.stringify(users));
+        };
+    
+        loadUsers();
+    
+    
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            errorMessage.textContent = '';
+    
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const directions = [];
+            const checkboxes = document.querySelectorAll('input[name="direction[]"]:checked');
+            checkboxes.forEach(checkbox => directions.push(checkbox.value));
+    
+    
+            if (password !== confirmPassword) {
+                errorMessage.textContent = 'Пароли не совпадают!';
+                return;
+            }
+    
+            if (directions.length === 0) {
+                errorMessage.textContent = 'Выберите хотя бы одно направление!';
+                return;
+            }
+    
+            if (users.some(user => user.username === username || user.email === email)) {
+                errorMessage.textContent = 'Пользователь с таким именем или email уже существует!';
+                return;
+            }
+    
+            users.push({ username, email, password, directions });
+            saveUsers();
+            alert('Регистрация успешна!');
+        });
+    </script>
+    </body>
+    </html>
