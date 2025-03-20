@@ -203,3 +203,56 @@ footer {
     display: block;
 }
 
+a {
+    display: inline-block; 
+    padding: 10px 20px; 
+    background-color: #4CAF50; 
+    color: white; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; 
+}
+  
+a:hover {
+    background-color: #45a049; 
+}
+  
+  
+.button { 
+    background-color: #008CBA; 
+    border: 2px solid #008CBA; 
+}
+  
+.button:hover {
+    background-color: #2196F3; 
+}
+  
+ul li a {
+    background-color: #f0f0f0; 
+    color: #333; 
+    border: 1px solid #ccc; 
+    padding: 8px 15px; 
+    margin-bottom: 5px; 
+}
+  
+ul li a:hover {
+    background-color: #ddd; 
+}
+
+
+
+
+pre {
+  background-color: #222; 
+  color: #fff; 
+  padding: 10px; 
+  border-radius: 5px;
+  overflow-x: auto; 
+}
+
+pre code.language-python {
+  font-family: 'Courier New', monospace; 
+}
+
+
+  
