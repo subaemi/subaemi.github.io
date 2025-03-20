@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Веб-разработка на React - Урок 3: Props</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-container">
+        <header>
+            </header>
+
+        <main>
+            <h1>Веб-разработка на React - Урок 3: Props</h1>
+
+            <article>
+                <h2>Props: Передача данных в компоненты</h2>
+                <p>Props (properties — свойства) — это механизм передачи данных из родительского компонента в дочерний.  Они являются способом обмена информацией между компонентами в React.  Props передаются в качестве атрибутов в JSX.</p>
+
+                <p>Props являются неизменяемыми (immutable) внутри дочернего компонента.  Это означает, что дочерний компонент не может изменять значения props.</p>
+
+                <h3>Пример:</h3>
+                <pre><code class="language-jsx">
+function Welcome(props) {
+  return <h1>Привет, {props.name}!</h1>;
+}
+
+function App() {
+  return (
+    <div>
+      <Welcome name="Алиса" />
+      <Welcome name="Боб" />
+    </div>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
+                </code></pre>
+
+                <p>В этом примере, компонент `App` передает props `name` компоненту `Welcome`.  Компонент `Welcome` отображает приветствие с переданным именем.</p>
+
+
+                <h3>Типы данных props:</h3>
+                <p>Props могут принимать различные типы данных, включая строки, числа, булевы значения, массивы и объекты.</p>
+
+                <h3>Проверка типов props (propTypes):</h3>
+                <p>(Для более надежного кода, вы можете использовать `propTypes` для проверки типов переданных props)</p>
+                <pre><code class="language-jsx">
+                Welcome.propTypes = {
+                name: PropTypes.string.isRequired,
+                };
+                </code></pre>
+
+                <h2>Что дальше?</h2>
+                <p>В следующем уроке мы рассмотрим state — способ управления данными внутри компонента.</p>
+            </article>
+        </main>
+
+        <footer>
+            </footer>
+    </div>
+    <script src="/script.js"></script>
+</body>
+</html>
